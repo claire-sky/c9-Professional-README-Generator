@@ -1,5 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
+const fs = require('fs');
+
 
 // TODO: Create an array of questions for user input
 const questions = () => {
@@ -106,7 +108,6 @@ const questions = () => {
             message: "Provide test instructions. Use a semi-colon ';' to seperate steps.",
             when: ({ confirmTest }) => confirmTest
         },
-        
         {
             type: "checkbox",
             name: "license",
@@ -117,10 +118,28 @@ const questions = () => {
 };
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+// function writeToFile(fileName, data) {
     // https://img.shields.io/static/v1?label=<LABEL>&message=<MESSAGE>&color=<COLOR>
     // https://img.shields.io/static/v1?label=<LABEL>&message=<The Unlicense>&color=<blue>
-}
+// }
+
+const writeToFile = fileContent => {
+    fileContent = "Something to test";
+
+    return new Promise((resolve, reject) => {
+        fs.writeFile("./dist/README.md", fileContent, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+
+            resolve({
+                ok: true,
+                message: "File created!"
+            });
+        });
+    });
+};
 
 // TODO: Create a function to initialize app
 function init() {}
@@ -128,4 +147,9 @@ function init() {}
 // Function call to initialize app
 init();
 
-questions();
+// questions()
+// .then(questions => {
+//     return writeToFile(questions)
+// });
+
+writeToFile();
