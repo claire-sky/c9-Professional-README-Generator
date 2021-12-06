@@ -118,7 +118,7 @@ const questions = () => {
         },
         {
             type: "input",
-            name: "test",
+            name: "tests",
             message: "Provide test instructions. Use a semi-colon ';' to seperate steps.",
             when: ({ confirmTest }) => confirmTest
         },
@@ -151,11 +151,6 @@ const writeToFile = fileContent => {
 };
 
 // TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
-
 questions()
 .then(answers => {
     return generateReadme(answers);
@@ -169,6 +164,3 @@ questions()
 .catch(err => {
     console.log(err);
 });
-
-// questions()
-// .then(data => console.log(data));
