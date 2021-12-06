@@ -1,11 +1,25 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require('fs');
+const generateReadme = require('./utils/generateMarkdown');
 
 
 // TODO: Create an array of questions for user input
 const questions = () => {
     return inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "What is your name? (required)",
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log("Please enter your name.");
+                    return false;
+                }
+            }
+        },
         {
             type: "input",
             name: "title",
@@ -109,7 +123,7 @@ const questions = () => {
             when: ({ confirmTest }) => confirmTest
         },
         {
-            type: "checkbox",
+            type: "rawlist",
             name: "license",
             message: "Select a license. (required)",
             choices: ["The Unlicense", "MIT License", "GNU AGPLv3"]
@@ -118,13 +132,8 @@ const questions = () => {
 };
 
 // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {
-    // https://img.shields.io/static/v1?label=<LABEL>&message=<MESSAGE>&color=<COLOR>
-    // https://img.shields.io/static/v1?label=<LABEL>&message=<The Unlicense>&color=<blue>
-// }
-
 const writeToFile = fileContent => {
-    fileContent = "Something to test";
+    // fileContent = "Something to test";
 
     return new Promise((resolve, reject) => {
         fs.writeFile("./dist/README.md", fileContent, err => {
@@ -147,9 +156,19 @@ function init() {}
 // Function call to initialize app
 init();
 
-// questions()
-// .then(questions => {
-//     return writeToFile(questions)
-// });
+questions()
+.then(answers => {
+    return generateReadme(answers);
+})
+.then(markdown => {
+    return writeToFile(markdown);
+})
+.then(writeFileResponse => {
+    console.log(writeFileResponse);
+})
+.catch(err => {
+    console.log(err);
+});
 
-writeToFile();
+// questions()
+// .then(data => console.log(data));
