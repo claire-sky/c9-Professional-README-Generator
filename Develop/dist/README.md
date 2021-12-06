@@ -1,5 +1,5 @@
 
-# asdf
+# Llama Drama Detonator
 
 
 ![License](https://img.shields.io/static/v1?label=license&message=MIT%20License&color=blue)
@@ -15,33 +15,34 @@
 * [License](#license)
 
 ## Description
-sdf
+Detonate your dramatic llamas with this fun and explosive game.
 
 
 ## Installation
 N/A
 
 ## Usage
-asdf
+Age appropriate for 6-76. May cause finger cramping, so play with care;)
 
 ## Contribution
-asdf
+Fork this and show us what you've got.
 
 
 ## Tests
-* tseting
-* again
+* Stumble through one round
+* Play through a second round
+* Detonate final round
 
 ## Contact
-[https://github.com/asdf](https://github.com/asdf)
+[https://github.com/llama-mama](https://github.com/llama-mama)
 
-You can reach me at [asdf](mailto:asdf) for additional questions.
+You can reach me at [llama-mama@gmail.com](mailto:llama-mama@gmail.com) for additional questions.
 
 
   ## License
   [MIT License](https://spdx.org/licenses/MIT.html)
 
-  Copyright (c) 2021 asdf
+  Copyright (c) 2021 Llama Mama
 
   Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
